@@ -1,2 +1,5 @@
 instructor
-*-instructor*
+*instructor*
+node_modules
+package.json
+package-lock.json
