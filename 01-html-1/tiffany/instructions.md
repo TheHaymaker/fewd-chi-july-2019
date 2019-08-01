@@ -1,0 +1,1 @@
+1. Using our html.txt file, create a new html document from scratch. Include a DOCTYPE, html, head and body tags.
