@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-size: cover;
+  background-position: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+label,
+input,
+select {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type='text'] {
+  border-radius: 20px;
+  border: 4px outset whitesmoke;
+  line-height: 1.5rem;
+  padding: 3px 22px;
+}
+
+.mars {
+  background-image: url('./mars.jpg');
+}
