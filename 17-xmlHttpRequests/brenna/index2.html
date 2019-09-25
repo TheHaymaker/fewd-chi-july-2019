@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>XMLHttpRequests</title>
+</head>
+
+<body>
+
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+
+    var request = new XMLHttpRequest();
+    request.addEventListener("load", function () {
+      console.log(this.responseText);
+    });
+    request.open("GET", "https://jsonplaceholder.typicode.com/todos?_page=1&_limit=20");
+    request.send();
+
+
+
+    var body = document.body;
+
+    axios.get('https://jsonplaceholder.typicode.com/todos?_page=1&_limit=20')
+      .then(function (response) {
+        // handle success
+        response.data.forEach(function (todo) {
+          var template = `
+      <div>
+        <input type="checkbox" ${todo.completed ? 'checked' : ''}>
+        <span>${todo.title}</span>
+      </div>
+      `;
+
+          body.innerHTML += template;
+        })
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+
+  </script>
+</body>
+
+</html>

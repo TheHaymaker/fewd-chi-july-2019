@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>XMLHttpRequests</title>
+</head>
+
+<body>
+
+  <div>
+    <input type="checkbox" checked>
+    E pluribus unum some latin jawn
+  </div>
+
+
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+
+    axios.get('https://jsonplaceholder.typicode.com/todos')
+      .then(function (response) {
+        // handle success
+        // response object
+        /**
+         * {
+         *   data: [
+         *    {
+         *      title: "some title",
+         *      id: 1,
+         *      completed: false
+         *    }
+         *     ...
+         *   ]
+         * }
+         * 
+        */
+
+        //   for (let i = 0; i < response.data.length; i++) {
+        //    const element = response.data[i];
+
+        //  }
+
+        var body = document.body;
+
+        // response.data.forEach(function (todoItem) {
+        //   var newElement = document.createElement('div');
+        //   var checkboxInput = document.createElement('input');
+        //   checkboxInput.setAttribute('type', 'checkbox');
+        //   if (todoItem.completed) {
+        //     checkboxInput.setAttribute('checked', 'true');
+        //   }
+
+        //   console.log(checkboxInput);
+        //   newElement.innerText = todoItem.title;
+        //   newElement.prepend(checkboxInput);
+
+
+        //   body.append(newElement);
+        // })
+
+        response.data.forEach(function (todoItem) {
+
+          var emmet = "Emmet";
+          var joinedString = "Hello, " + emmet + ". How are you?";
+          var templateLiteralString = `Hello, ${emmet}. How are you?`
+
+          var templateTheOldWay = '';
+          templateTheOldWay += "<div><input type='checkbox' ";
+          templateTheOldWay += todoItem.completed ? "checked" : '';
+          templateTheOldWay += ">";
+          templateTheOldWay += todoItem.title;
+          templateTheOldWay += "</div>";
+
+          var template = `
+          <div>
+            <input type="checkbox" ${todoItem.completed ? 'checked' : ''}>
+            ${todoItem.title}
+          </div>
+          `;
+
+          body.innerHTML += templateTheOldWay;
+        })
+
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+
+
+    try {
+      // all of your scripts here
+
+    } catch (error) {
+      console.log(error);
+    }
+
+    // var request = new XMLHttpRequest();
+
+    // request.addEventListener("load", function () {
+    //   console.log(this);
+    //   console.log(this.responseText);
+    // });
+
+    // request.open("GET", "https://jsonplaceholder.typicode.com/todos?_page=1&_limit=20");
+
+    // request.send();
+
+  </script>
+
+</body>
+
+</html>
